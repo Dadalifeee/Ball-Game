@@ -21,6 +21,18 @@ public class Player_Controller : MonoBehaviour
     static private List<string> Fruits;
     static private int Score;
 
+    // Vitesse de déplacement
+    public float walkSpeed;
+
+    //inputs touches
+    public string inputFront;
+    public string inputBack;
+    public string inputLeft;
+    public string inputRight;
+
+    public Vector3 jumpSpeed;
+    CapsuleCollider playerCollider;
+
     void Start()
     {
         Player_RB = GetComponent<Rigidbody>();
@@ -30,6 +42,7 @@ public class Player_Controller : MonoBehaviour
         Win_Text.text = "";
         TimeLeft = MaxTime;
         GainPoints = 0;
+        playerCollider = gameObject.GetComponent<CapsuleCollider>();
     }
 
     void Update()
@@ -39,36 +52,36 @@ public class Player_Controller : MonoBehaviour
         {
             Lose();
         }
-        if (Input.GetKey(KeyCode.Z))
+        // si on avannce
+        if (Input.GetKey(inputFront))
         {
-            if (transform.localEulerAngles.y == 0)
-            {
-                StartCoroutine(Move_Forward());
-            }
-            if (transform.localEulerAngles.y == 90)
-            {
-                StartCoroutine(Move_Right());
-            }
-            if (transform.localEulerAngles.y == 270)
-            {
-                StartCoroutine(Move_Left());
-            }
-            if (transform.localEulerAngles.y == 180)
-            {
-                StartCoroutine(Move_Back());
-            }
+            transform.Translate(0, 0, walkSpeed * Time.deltaTime);
         }
-        else if (Input.GetKeyUp(KeyCode.Q))
+
+        if (Input.GetKeyUp(KeyCode.Q))
         {
             Vector3 Rotate_Left = new Vector3(0, -90, 0);
             Quaternion Rotate_Left_Q = Quaternion.Euler(Rotate_Left);
             Player_RB.MoveRotation(Player_RB.rotation * Rotate_Left_Q);
         }
-        else if (Input.GetKeyUp(KeyCode.D))
+        if (Input.GetKeyUp(KeyCode.D))
         {
             Vector3 Rotate_Right = new Vector3(0, 90, 0);
             Quaternion Rotate_Right_Q = Quaternion.Euler(Rotate_Right);
             Player_RB.MoveRotation(Player_RB.rotation * Rotate_Right_Q);
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && Player_RB.velocity.y == 0)
+        {
+            //Préparation saut
+            Vector3 v = gameObject.GetComponent<Rigidbody>().velocity;
+            v.y = jumpSpeed.y;
+
+            // Saut
+            gameObject.GetComponent<Rigidbody>().velocity = jumpSpeed;
+        }
+        if (Input.GetKey(inputBack))
+        {
+            transform.Translate(0, 0, -(walkSpeed/2 * Time.deltaTime));
         }
     }
 
@@ -140,10 +153,21 @@ public class Player_Controller : MonoBehaviour
         {
             TimeLeft += Time.deltaTime;     // On compense la diminution du temps
         }
+        else if (collision.gameObject.CompareTag("End"))
+        {
+            if (Input.GetKey(KeyCode.F))
+            {
+                if (NeededKey == 0)
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                }
+            }
+        }
     }
 
     private void Win()
     {
+
         File.AppendAllText(@"High_Score.txt", DateTime.Now + ":" + Score + Environment.NewLine);
     }
 
