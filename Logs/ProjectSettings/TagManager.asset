@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Coin
+  - Gem
+  - Banane
+  - "Past\xE8que"
+  - Pomme
+  - Raisin
+  - Melon
+  - "Cl\xE9"
+  - Lethargy Pill
+  - Bouncy Pill
+  - End
+  - Invisible
+  - Flimsy
+  - Spine
+  - Sun Glass
+  - Stop Time
+  - HourGlass
+  - Captivator
+  - Spikes
+  - Transporter
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

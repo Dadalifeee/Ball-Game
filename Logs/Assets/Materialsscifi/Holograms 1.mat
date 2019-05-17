@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Holograms 1
+  m_Shader: {fileID: 4800000, guid: 8374823b196a66b489e3d56b234c8272, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Emmisive:
+        m_Texture: {fileID: 2800000, guid: e30978ab854f82641965dc7c95f1a675, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Interference:
+        m_Texture: {fileID: 2800000, guid: e199472709905a944ac7c71084ddd808, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Cutoff: 0.5
+    - _Inter_streng: 1
+    - _Interference_escale: 2.36
+    - _node_452: 0
+    m_Colors:
+    - _Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Holo_color: {r: 0.3868404, g: 0.69183254, b: 0.99264705, a: 0}
+    - _node_531: {r: 0.5, g: 0.5, b: 0.5, a: 1}
