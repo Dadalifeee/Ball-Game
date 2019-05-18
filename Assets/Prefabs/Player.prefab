@@ -74,7 +74,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b57f129d66c9cc84abfb28f1bffa80cd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -132,8 +132,6 @@ MonoBehaviour:
   MaxTime: 60
   Penality: 0
   walkSpeed: 4
-  runSpeed: 0
-  turnSpeed: 90
   inputFront: z
   inputBack: s
   inputLeft: q
